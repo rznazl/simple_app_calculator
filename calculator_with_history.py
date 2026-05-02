@@ -47,3 +47,18 @@ class CalculatorApp:
                 res = num1 / num2
 
             self.result_label.config(text=f"Result: {res}")
+            
+            if not messagebox.askyesno("Try Again", "Do you want to do another calculation?"):
+                messagebox.showinfo("Exit", "Thank You!")
+                self.root.quit()
+            else:
+                self.clear_fields()
+                
+        except ValueError:
+            messagebox.showerror("Runtime Error", str(e))
+        except Exception as e:
+            messagebox.showerror("Error", f"An unexpected error occurred: {e}")
+    def clear_fields(self):
+        self.entry1.delete(0, tk.END)
+        self.entry2.delete(0, tk.END)
+        self.result_label.config(text="Result: ")
