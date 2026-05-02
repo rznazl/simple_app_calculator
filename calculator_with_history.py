@@ -28,3 +28,22 @@ class CalculatorApp:
 
         self.result_label = tk.Label(root, text="Result: ", font=("Arial", 12))
         self.result_label.pack(pady=10)
+
+    def perform_calculation(self):
+        try:
+            num1 = float(self.entry1.get())
+            num2 = float(self.entry2.get())
+            op = self.operation.get()
+
+            if op == "Addition":
+                res = num1 + num2
+            elif op == "Subtraction":
+                res = num1 - num2
+            elif op == "Multiplication":
+                res = num1 * num2
+            elif op == "Division":
+                if num2 == 0:
+                    raise ZeroDivisionError("Cannot divide by zero")
+                res = num1 / num2
+
+            self.result_label.config(text=f"Result: {res}")
