@@ -62,3 +62,8 @@ class CalculatorApp:
         self.entry1.delete(0, tk.END)
         self.entry2.delete(0, tk.END)
         self.result_label.config(text="Result: ")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CalculatorApp(root)
+    root.mainloop()
